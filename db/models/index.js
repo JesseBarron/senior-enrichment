@@ -1,5 +1,15 @@
 'use strict';
+const Student = require('./Student');
+const Campus = require('./Campus');
 
+Student.belongsTo(Campus, { foreignKeyConstraint: true, onDelete:'cascade' });
+Campus.hasMany(Student);
+
+
+module.exports = {
+	Student,
+	Campus
+};
 // Require all the models
 	// Running each model (i.e. table) module (i.e. file) registers each model into our sequelize db so any other part of the application could call db.model('user') OR db.models.user to get access to the `user` model.
 	// This works if we all use the same Sequelize instance (instantiated in and exported from `/db/index.js`)
