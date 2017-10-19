@@ -12,18 +12,18 @@ const imageUrls = {
 }
 
 const studentArr = [
-  {name: 'Jesse', email: "Jesse@MHIA.com", campusId: 1},
-  {name: 'Mayra', email: "Mayra@MHIA.com", campusId: 2},
-  {name: 'Alex', email: "Alex@MHIA.com", campusId: 3},
-  {name: 'Benjamin', email: "Benjamin@MHIA.com", campusId: 3},
-  {name: 'Buzz', email: "Buzz@MHIA.com", campusId: 3},
-  {name: 'Neil', email: "Neil@MHIA.com", campusId: 2},
+  {firstName: 'Jesse', lastName: 'B',email: "Jesse@MHIA.com", gpa: 3.0, campusId: 1},
+  {firstName: 'Mayra', lastName: 'M',email: "Mayra@MHIA.com", gpa: 3.3, campusId: 2},
+  {firstName: 'Alex', lastName: 'B',email: "Alex@MHIA.com", gpa: 3.5, campusId: 3},
+  {firstName: 'Benjamin', lastName: 'B',email: "Benjamin@MHIA.com", gpa: 3., campusId: 3},
+  {firstName: 'Buzz', lastName: 'A',email: "Buzz@MHIA.com", gpa: 3.6, campusId: 3},
+  {firstName: 'Neil', lastName: 'A',email: "Neil@MHIA.com", gpa: 3.9, campusId: 2},
 ];
 
 const campusArr = [
-  {name: "earth", image: imageUrls.earth},
+  {name: "earth"},
   {name: "mars", image: imageUrls.mars},
-  {name: "pluto", image: imageUrls.pluto}
+  {name: "pluto"}
 ];
 
 
@@ -33,11 +33,11 @@ const seedDB = async () => {
     console.log('Seeded Campus')
     await Student.bulkCreate(studentArr);
     console.log('Seeded Students')
-    return 'Seeding Complete';
   }
   catch(err){
     console.log(err)
   }
+  return "Seeding Complete"
 }
 
 seedDB();
