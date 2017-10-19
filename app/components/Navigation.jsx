@@ -4,7 +4,7 @@ import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
 const Navigation = () => {
 	return (
-		<Navbar inverse>
+		<Navbar >
 			<Navbar.Header>
 				<Navbar.Brand>
 					<NavLink to='/'>LOGO</NavLink>

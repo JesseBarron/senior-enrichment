@@ -14,7 +14,7 @@ api.param('campusId', (req, res, next, campusId) => {
 })
 //Get all the Campuses.
 api.get('/', (req, res) => {
-	Campus.findAll()
+	Campus.findAll({include: [{model: Student}]})
 		.then(campuses => {
 			res.json(campuses);
 		})

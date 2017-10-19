@@ -1,22 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchAllCampuses } from '../reducers/Campus';
+import { fetchAllStudents } from '../reducers/Student';
+import CampusList from './CampusList';
+import StudentList from './StudentList';
+
 const styling = {
-  coverPicture: {
-    position: 'absolute',
-    width: '100vw',
-    zIndex: -2,
-  },
 
   coverContainer: {
     display: 'flex',
-    position: 'absolute',
+    backgroundImage: 'url(http://space.airbus.com/wp-content/uploads/2016/09/earth-view-from-satellite-space-systems-cover.jpg)',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: '11vh',
     margin: '0 auto',
     width: '100vw',
-    top: '21.3vh'
+    height: '50vh'
   },
 
   coverBio: {
@@ -31,47 +29,57 @@ const styling = {
   },
 };
 
-
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      coverImg: 'http://space.airbus.com/wp-content/uploads/2016/09/earth-view-from-satellite-space-systems-cover.jpg'
+      coverImg: ''
     }
   };
 
-  componentDidMount(){
-    this.props.fetchAllCampuses();
+  componentDidMount() {
+    this.props.getInitialData();
   }
 
   render() {
     return (
       <div className='homeMain'>
+      <div className="cover">
         <div className='coverContainer' style={styling.coverContainer}>
-          <img id="coverPicture" src={this.state.coverImg} style={styling.coverPicture} />
           <div id='coverBio' style={styling.coverBio}>
             <h2>Some Space codeSchool!</h2>
             <p style={styling.text}>
-              dkfa;dslkjfa;sldjf;asldjfajsd;fa;sdkjfa;sldkjfas;dkjf <br />
-              jfaklsdfja;sldjfalskdjf;alskdjflaskdjfalsdjfalkdsfjfals;ddfjaklsdfjasdfja;sdjf
+              This is going to be a small bio <br />
+              Some more text here.........................
             </p>
           </div>
         </div>
       </div>
+        <section className='campusListContainer'>
+          <CampusList campuses={this.props.campuses} />
+        </section>
+        <section className="StudentListContainer">
+          <StudentList students={this.props.students} />
+        </section>
+      </div>
     );
   }
 }
-const mapState = ({ campuses }) => {
+
+{/* <img id="coverPicture" src={this.state.coverImg} style={styling.coverPicture} /> */}
+const mapState = ({ campuses, students }) => {
   return {
-    campuses
+    campuses,
+    students
   }
 };
 
 const mapProps = (dispatch) => {
   return {
-    fetchAllCampuses(){
+    getInitialData: ()  => {
       dispatch(fetchAllCampuses())
-    }
+      dispatch(fetchAllStudents())
+    },
   }
 };
 

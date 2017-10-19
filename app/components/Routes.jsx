@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './Home';
 import Campuses from './Campuses';
 import Students from './Students';
+import CampusProfile from './CampusProfile'
+import StudentProfile from './StudentProfile';
 import Root from './Root';
 
 const history = createBrowserHistory();
@@ -16,8 +18,10 @@ class Routes extends Component {
         <Root>
           <Switch>
             <Route exact path='/' component={ Home } />
-            <Route path='/campuses' component={ Campuses } />
-            <Route path='/students' component={ Students } />
+            <Route exact path='/campuses' component={ Campuses } />
+            <Route path='/campuses/:id' component={ CampusProfile } />
+            <Route exact path='/students' component={ Students } />
+            <Route path='/students/:id' component={ StudentProfile } />
           </Switch>
         </Root>
       </Router>

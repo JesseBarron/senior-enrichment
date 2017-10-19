@@ -1,3 +1,38 @@
-#ref{
-  color: rgba(196, 196, 196, 0.637)
+.navbar{
+  margin-bottom: 0px;
+}
+.cover {
+
+}
+
+.campusListContainer {
+  max-width: 100vw; 
+}
+
+.campusList {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  list-style: none;
+}
+
+.campusList h5 {
+  color: white;
+}
+.studentList{
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  text-align: center;
+  margin-bottom: 2px;
+  width: 70%;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.678);}
+
+  .studentList img{
+  height: 10rem;
+}
+
+.studentList li{
+  padding: 5px;
 }
