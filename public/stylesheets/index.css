@@ -1,12 +1,3 @@
-.coverContainer{
-  position: absolute;
-  width: 100vw;
-};
-
-#coverPicture{
-  width: 100vw;
-}
-.navbarLink{
-  color: white;
-  font-size: 2.5rem;
+#ref{
+  color: rgba(196, 196, 196, 0.637)
 }
