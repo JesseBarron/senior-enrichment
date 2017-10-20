@@ -23,7 +23,6 @@ api.get('/', (req, res) => {
 
 //Get specific campus by campus id, also returns all the students belonging to that school.
 api.get('/:campusId', (req, res) => {
-	
 	req.selectedCampus.reload({
 		include: [{
 			model: Student,

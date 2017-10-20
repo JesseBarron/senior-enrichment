@@ -3,10 +3,8 @@ import axios from 'axios';
 //Actions ----------------------------->
 
 const GET_ALL_CAMPUSES = 'GET_ALL_CAMPUSES';
-const GET_CAMPUS = 'GET_CAMPUS';
 const POST_CAMPUS = 'POST_CAMPUS';
 const DELETE_CAMPUS = 'DELETE_CAMPUS';
-const UPDATE_CAMPUS = 'UPDATE_CAMPUS';
 
 
 //Action Creator -------------------------->
@@ -18,11 +16,22 @@ export const getAllCampuses = (campuses) => {
   }
 };
 
+export const postCampus = (campus) => {
+  return {
+    type: POST_CAMPUS,
+    campus
+  }
+}
+
+
 //Reducer ------------------------------>
 const reducers = {
   GET_ALL_CAMPUSES: (state, action) => {
     return action.campuses;
   },
+  POST_CAMPUS: (state, action) => {
+    return [action.campus, ...state];
+  }
 };
 
 export default function reducer(state = [], action) {
@@ -39,3 +48,11 @@ export const fetchAllCampuses = () => (dispatch) => {
     dispatch(action);
   })
 };
+
+export const postCampusToDB = (newCampus) => (dispatch) => {
+  axios.post(`/api/campuses`, newCampus)
+  .then(res => res.data)
+  .then(campus => {
+    dispatch(postCampus(campus))
+  })
+}

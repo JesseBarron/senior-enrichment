@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 const StudentProfile = (props) => {
   return (
     <div>
-      <h1>Student Goes here</h1>
+      <h1>Student Profile Goes here</h1>
+      
     </div>
   );
 }

@@ -1,12 +1,14 @@
 .navbar{
   margin-bottom: 0px;
 }
-.cover {
 
-}
 
 .campusListContainer {
   max-width: 100vw; 
+}
+
+.campusListContainer h3 {
+  text-align: center;
 }
 
 .campusList {
@@ -19,13 +21,28 @@
 .campusList h5 {
   color: white;
 }
+
+#campusDiv{
+  margin-bottom: 2px;
+}
+
+#campusDiv h4{
+  background-color: rgb(63, 63, 107);
+  text-align: center;
+}
+
+#campusDiv a {
+  color: white;
+}
+
 .studentList{
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   list-style: none;
   text-align: center;
   margin-bottom: 2px;
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
   background-color: rgba(255, 255, 255, 0.678);}
 
@@ -35,4 +52,17 @@
 
 .studentList li{
   padding: 5px;
+}
+
+.campusProfileContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1rem;
+}
+
+#campusProfileImg {
+  height: 9rem;
+  width: auto;
+  margin-right: 20px;
 }

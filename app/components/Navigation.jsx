@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
 const Navigation = () => {
@@ -7,12 +7,12 @@ const Navigation = () => {
 		<Navbar >
 			<Navbar.Header>
 				<Navbar.Brand>
-					<NavLink to='/'>LOGO</NavLink>
+					<Link to='/'>LOGO</Link>
 				</Navbar.Brand>
 			</Navbar.Header>
 			<Nav pullRight>
-				<NavItem href='#'><NavLink className='navbarLink' activeStyle={{ color: 'white' }} to='/campuses'>Campuses</NavLink></NavItem>
-				<NavItem href='#'><NavLink className='navbarLink' activeStyle={{ color: 'white' }} to='/students'>Students</NavLink></NavItem>
+				<Link className='navbarLink' activeStyle={{ color: 'black' }} to='/campuses'>Campuses</Link>
+				<Link className='navbarLink' activeStyle={{ color: 'black' }} to='/students'>Students</Link>
 			</Nav>
 		</Navbar>
 	);

@@ -1,25 +1,36 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import StudentList from './StudentList';
-import { NavLink } from 'react-router-dom';
 
-const CampusList = ({ campuses, students }) => {
-  return (
-    <div className='campusList'>
-      {
-        campuses.map(campus => {
-          if(campus.students.length) {
-            return (
-              <div key={campus.id} style={{backgroundImage: `url(${campus.image})` }}>
-                  <h5><NavLink to={`/campuses/${campus.id}`}> {campus.name.toUpperCase()}'s </NavLink> Honered Students! </h5>
-                <hr/>
-                <StudentList campusId={campus.id} />
-              </div>
-            );
-          }
-        })
-      }
-    </div>
-  )
+
+const CampusList = (props) => {
+    return (
+      <div className='campusList'>
+        {
+          props.campuses.map(campus => {
+            if(props.honored) {
+              return (
+                <div key={campus.id} id='campusDiv'>
+                    <h4><Link to={`/campuses/${campus.id}`}> {campus.name.toUpperCase()} </Link></h4>
+                  <hr/>
+                  <StudentList students={props.students} honored={ props.honored } campusId={campus.id} />
+                </div>
+              );
+            }
+            else {
+              return (
+                <div key={campus.id} id='campusDiv'>
+                    <h4><Link to={`/campuses/${campus.id}`}> {campus.name.toUpperCase()}</Link></h4>
+                  <hr/>
+                  <StudentList students={props.students} honored={ props.honored } campusId={campus.id} />
+                </div>
+              )
+            }
+          })
+        }
+      </div>
+    )
 }
 
 export default CampusList;

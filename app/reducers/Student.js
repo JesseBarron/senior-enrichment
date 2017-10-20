@@ -16,11 +16,21 @@ export const getAllStudents = (students) => {
  } 
 };
 
+export const postStudent = (student) => {
+  return {
+    type: POST_STUDENT,
+    student
+  }
+}
+
 //REDUCER ------------------------->
 const reducerFuncs = {
   GET_ALL_STUDENTS: (state, action) => {
     return action.students;
   },
+  POST_STUDENT: (state, action) => {
+    return [...state, action.student];
+  }
 }
 
 export default function reducer(state = [], action){
@@ -37,3 +47,12 @@ export const fetchAllStudents = () => (dispatch) =>{
     dispatch(action);
   });
 }
+
+export const postStudentToDB = (student) => (dispatch) => {
+  axios.post('/api/students', student)
+  .then(res => res.data)
+  .then(newStudent => {
+    let action = postStudent(newStudent);
+    dispatch(action);
+  })
+}  

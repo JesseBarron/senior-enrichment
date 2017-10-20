@@ -56,10 +56,8 @@ class Home extends Component {
         </div>
       </div>
         <section className='campusListContainer'>
-          <CampusList campuses={this.props.campuses} />
-        </section>
-        <section className="StudentListContainer">
-          <StudentList students={this.props.students} />
+          <h3> Campuses </h3>
+          <CampusList honored={ true } campuses={this.props.campuses} students={this.props.students}/>
         </section>
       </div>
     );
